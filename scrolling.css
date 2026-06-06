@@ -1,0 +1,16 @@
+.auto-slide {
+    opacity: 0;
+    transform: translateY(40px);
+    will-change: opacity, transform;
+}
+.text-side2, .image-side2 {
+    opacity: 0; 
+    transform: translateY(40px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.hero2.active .text-side2,
+.hero2.active .image-side2 {
+    opacity: 1;
+    transform: translateY(0);
+}

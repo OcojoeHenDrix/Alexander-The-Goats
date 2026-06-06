@@ -1,0 +1,130 @@
+@import url('styles/fonts.css');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+    height: 100%;
+    background-color: #070707;
+}
+
+body {
+    background-color: #0c0c0c;
+    color: #ffffff;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+/* ==========================================================================
+   1. FIXED NAVBAR CONTAINER
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    background-color: rgba(76, 4, 117, 0.85);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    box-sizing: border-box;
+    z-index: 100;
+    padding: 0 40px;
+
+    /* Centering Layout Mode */
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 40px;
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* THIS CLASS WILL HIDE THE NAVBAR */
+.navbar.nav-hidden {
+    transform: translateY(-100%); /* Slides the navbar up completely out of view */
+    opacity: 0;                  /* Fades it out cleanly */
+    pointer-events: none;         /* Disables clicking links while hidden */
+}
+
+/* ==========================================================================
+   2. EMBEDDED LOGO & CENTERING COMPONENTS
+   ========================================================================== */
+.nav-logo {   
+    justify-self: center;   
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: 50%;
+}
+
+.logo-wrapper {
+    position: relative;
+    display: grid;
+    place-items: center;
+    height: 55px; 
+    width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.nav-frame {
+    grid-area: 1 / 1;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.nav-logo-img {
+    margin-top: -10px;
+    margin-left: 65px;
+    grid-area: 1 / 1;
+    height: 40px;            
+    width: 50px;
+    object-fit: contain;
+    z-index: 5;
+    
+    /* Fine-tuned positioning offset directly over the frame asset */
+    transform: translate(-33px, -2px); 
+}
+
+.nav-text {
+    color: #ffcc00;
+    font-size: 1.1rem;
+    font-weight: bold;
+    justify-self: start;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    text-shadow: 7px 7px 0 #000;
+}
+
+/* ==========================================================================
+   3. NAVIGATION MENU ANCHORS
+   ========================================================================== */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    justify-self: end;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #d4af37;
+}
+

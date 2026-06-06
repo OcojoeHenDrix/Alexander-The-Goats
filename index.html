@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexander the Great - History Project</title>
+    <link rel="icon" href="images/mon_banner.png" type="image/png">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="second.css">
+    <link rel="stylesheet" href="scrolling.css">
+</head>
+<body>
+<!-- Top Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-text">ALEXANDER - THE GOD OF WARS</div>
+        <div class="nav-logo">
+            <div class="logo-wrapper">
+                 <img src="images/fram_logo.png" alt="Alexander the Great Logo" class="nav-frame">
+                <img src="images/mon_256.png" alt="Alexander the Great Logo" class="nav-logo-img">
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#timeline">TIMELINE</a></li>
+            <li><a href="#battles">BATTLES</a></li>
+            <li><a href="#empire">EMPIRE</a></li>
+            <li><a href="#legacy">LEGACY</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Hero Landing Area -->
+    <header class="hero">
+        <div class="hero-content auto-slide">
+            <span class="hero-date">356 BC — 323 BC</span>
+            
+            <h1 class="title-white">"<span class="title-gold">ALEXANDER</span></h1>
+            <h1 class="title-white">THE GREAT</h1>
+            <h2 class="title-white"> conquered continents at 19 and</h2>
+            <h2 class="title-white"> you are afraid to talk to a <span class="title-gold">female</span>?"</h2>
+            
+            <p class="hero-description">
+            <span class="lock-line">King of Macedon. Pharaoh of Egypt. Lord of Asia. The greatest military</span><br>
+            <span class="lock-line">commander the ancient world ever produced — who by the age of thirty had</span><br>
+            <span class="lock-line">forged an empire stretching from Greece to the borders of India.</span>
+            </p>
+
+            <!-- Bottom decorative Explore link -->
+            <div class="explore-container">
+                <span class="line"></span>
+                <a href="#timeline" class="explore-btn">EXPLORE HIS STORY</a>
+                <span class="line"></span>
+            </div>
+        </div>
+    </header>
+    <section class="hero2" id="timeline">
+        <div class="hero-content2">
+            <div class=" text-side2 auto-slide">
+                <p class="the-man-legend"> The Man Behind the Legend </p>
+                <h2 class="Born">Born to Conquer<br>the World</h2>
+                    <p class="hero-description2">
+                Alexander III of Macedon was born in Pella in 356 BC, the son of King Philip II 
+                and the Epirote princess Olympias. From his earliest years he was set apart — 
+                tutored by the philosopher Aristotle, he developed a voracious intellect 
+                alongside a warrior's ambition.
+            </p>
+            
+            <p class="hero-description2">
+                At sixteen he crushed a Thracian uprising while his father was away. At eighteen 
+                he commanded the decisive cavalry charge at Chaeronea that ended Greek independence. 
+                At twenty, following his father's assassination, he seized the Macedonian throne — 
+                and never stopped moving.
+            </p>
+            <p class="hero-description2">
+                In the thirteen years of his reign, Alexander never lost a battle.He shattered
+                the Persian Empire, liberated Egypt, crossed the Hindu Kush, and pushed
+                to the banks of the Beas River in modern-day India before his exhausted
+                army finally refused to go further.
+            </p>
+                </div>
+                <div class="image-side auto-slide">
+                    <img src="images/Alexander the Great1.jpg" alt="Alexander the Great" class="images1">
+                    <div class="text-overlay">
+                    <p>"There is no impossible to him who will try" - Alexander</p></div>
+                     <div class="stats">
+                    <div class="text-s">
+                        <h2>33</h2>
+                        <p>AGE AT DEATH</p>
+                    </div>
+
+                    <div class="text-s">
+                        <h2>5M KM²</h2>
+                        <p>EMPIRE AT PEAK</p>
+                    </div>
+
+                    <div class="text-s">
+                        <h2>70+</h2>
+                        <p>CITIES FOUNDED</p>
+                    </div>
+
+                    <div class="text-s">
+                        <h2>13 YEARS</h2>
+                        <p>UNBEATEN IN BATTLE</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </section>
+   <script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const navbar = document.querySelector('.navbar');
+
+    const handleScrollAnimation = () => {
+        const windowHeight = window.innerHeight;
+        const scrollY = window.scrollY;
+
+        // 1. IMPROVED NAVBAR LOGIC: Only hide AFTER leaving the main page
+        if (navbar) {
+            // It will only hide if you scroll down past 80% of the first screen's height
+            if (scrollY > (windowHeight * 0.8)) {
+                navbar.classList.add('nav-hidden');
+            } else {
+                // Stays perfectly visible while you are browsing the main page area
+                navbar.classList.remove('nav-hidden');
+            }
+        }
+
+        // 2. MAIN PAGE CONTENT ANIMATION & BACKGROUND PARALLAX
+        const firstHero = document.querySelector('.hero');
+        if (firstHero) {
+            const firstContent = firstHero.querySelector('.hero-content.auto-slide');
+            
+            let firstProgress = 1 - (scrollY / windowHeight);
+            firstProgress = Math.max(0, Math.min(1, firstProgress));
+
+            if (firstContent) {
+                firstContent.style.opacity = firstProgress;
+                const firstY = -50 * (1 - firstProgress);
+                firstContent.style.transform = `translateY(${firstY}px)`;
+            }
+
+            const initialY = 15; 
+            const movementRange = 20; 
+            const dynamicY = initialY + (movementRange * (1 - firstProgress));
+            
+            firstHero.style.backgroundPosition = `150% ${dynamicY}%`;
+        }
+
+        // 3. SECOND PAGE CONTENT ANIMATION FADE-IN
+        const secondSection = document.querySelector('.hero2');
+        if (secondSection) {
+            const animatedElements = secondSection.querySelectorAll('.auto-slide');
+            const rect = secondSection.getBoundingClientRect();
+
+            let secondProgress = (windowHeight - rect.top) / windowHeight;
+            secondProgress = Math.max(0, Math.min(1, secondProgress));
+
+            let fadeProgress = (secondProgress - 0.10) / (1 - 0.10);
+            fadeProgress = Math.max(0, Math.min(1, fadeProgress));
+
+            animatedElements.forEach(element => {
+                element.style.opacity = fadeProgress;
+                const secondY = 40 * (1 - fadeProgress);
+                element.style.transform = `translateY(${secondY}px)`;
+            });
+        }
+    };
+
+    window.addEventListener('scroll', handleScrollAnimation, { passive: true });
+    window.addEventListener('resize', handleScrollAnimation);
+    
+    // Check alignment values immediately on refresh
+    handleScrollAnimation();
+});
+</script>
+</body>
+</html>

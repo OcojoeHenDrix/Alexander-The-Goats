@@ -1,0 +1,155 @@
+@import url('styles/fonts.css');
+
+.hero2 {
+    min-height: 100vh;
+    height: auto;
+    width: 100%;
+    background-color: #0b0808;
+    background: linear-gradient(to bottom, #0b0a08 0%, #0b0a08 100%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 10%;
+    box-sizing: border-box;
+    scroll-margin-top: 80px;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    z-index: 2;
+    gap: 70px;
+}   
+
+.hero-content2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    gap: 70px;
+    flex-wrap: nowrap;
+}
+
+/* Two-Column Grid Controls */
+.text-side2 {
+    text-align: left;
+    max-width: 650px;
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-side {
+    position: relative;
+    flex-shrink: 0 !important;
+    max-width: 500px !important;
+    min-width: 500px !important;
+    width: 100%;
+    margin:20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.images1 {
+    flex: 1;
+    min-width: 0;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top:10%
+}
+.text-overlay{
+    position: absolute;
+    bottom: 57%;
+    left: 0;
+    width: 100%;
+    color: #e5cf9c;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    font-weight:bolder;
+    padding: 8% 5% 5% 5%; 
+    box-sizing: border-box;
+    background: linear-gradient(to top, rgba(11, 10, 8, 0.9) 0%, rgba(11, 10, 8, 0) 100%);
+    word-wrap: break-word;
+}
+
+.hero-description2 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.2rem;
+    line-height: 1.75;
+    font-weight: 400;
+    color: #bfae93;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+.the-man-legend {
+    font-family: 'Cinzel', 'EB Garamond', serif;
+    color: #8a7343;
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.Born {
+    font-family: 'Cinzel', 'EB Garamond', serif;
+    color: #e5cf9c;
+    font-size: 3.8rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: 1px;
+    margin: 0 0 35px 0;
+    text-transform: uppercase;
+}
+.line {
+    margin-top: 10%;
+    height: 1px;
+    width: 60px;
+    background-color: #d4af37;
+}
+
+@media (max-width: 1250px) {
+    .hero-content2 {
+        flex-direction: column !important; /* Forces the layout to stack vertically */
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .text-side2 {
+        max-width: 100%;
+        align-items: center; /* Aligns your text components nicely in the center when stacked */
+    }
+    
+    .image-side {
+        /* Unlocks the rigid 500px walls ONLY when it drops below the text */
+        min-width: 0 !important; 
+        max-width: 500px !important;
+        width: 100% !important;
+    }
+}
+.stats{
+    grid-template-columns: repeat(2,1fr);
+    flex: 1;
+    flex-direction: column;
+    padding: 80px 10%;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1000px;
+    justify-content: center;
+}
+.text-s{
+    color: #ffcc00;
+    text-align: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
