@@ -1,1 +1,6 @@
 @import "tailwindcss";
+@theme {
+  /* This creates a custom utility class called font-alexander */
+  --font-alexander: "Cinzel", serif;
+}
+

@@ -16,7 +16,7 @@
     scroll-snap-align: start;
     scroll-snap-stop: always;
     z-index: 2;
-    gap: 70px;
+    gap: 40px;
 }   
 
 .hero-content2 {
@@ -66,8 +66,9 @@
     margin-top:10%
 }
 .text-overlay{
+    display: block;
     position: absolute;
-    bottom: 57%;
+    bottom: 38%;
     left: 0;
     width: 100%;
     color: #e5cf9c;
@@ -118,33 +119,29 @@
 
 @media (max-width: 1250px) {
     .hero-content2 {
-        flex-direction: column !important; /* Forces the layout to stack vertically */
-        gap: 40px;
+        flex-direction: column; /* Forces the layout to stack vertically */
         text-align: center;
     }
     
     .text-side2 {
+        display: flex;
+        flex-direction: column;
         max-width: 100%;
         align-items: center; /* Aligns your text components nicely in the center when stacked */
     }
     
     .image-side {
         /* Unlocks the rigid 500px walls ONLY when it drops below the text */
-        min-width: 0 !important; 
-        max-width: 500px !important;
-        width: 100% !important;
+        min-width: 0; 
+        max-width: 500px;
+        width: 100%;
     }
 }
 .stats{
+    display: grid;
     grid-template-columns: repeat(2,1fr);
-    flex: 1;
-    flex-direction: column;
-    padding: 80px 10%;
-    align-items: center;
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 1000px;
-    justify-content: center;
+    grid-gap: 10px;
+    padding: 10px;
 }
 .text-s{
     color: #ffcc00;
